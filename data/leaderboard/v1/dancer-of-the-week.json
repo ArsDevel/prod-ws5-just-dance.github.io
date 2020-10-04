@@ -1,0 +1,51 @@
+//localhost:12345/nx/jd2021/leaderboard/v1/maps/*mapId*/dancer-of-the-week
+//localhost:12345/[ps4],[ps5]/jd2021/leaderboard/v1/maps/*mapId*/dancer-of-the-week
+//localhost:12345/xbox/jd2021/leaderboard/v1/maps/*mapId*/dancer-of-the-week
+//localhost:12345/stadia/jd2021/leaderboard/v1/maps/*mapId*/dancer-of-the-week
+//localhost:12345/pc/jd2021/leaderboard/v1/maps/*mapId*/dancer-of-the-week
+{
+  "__class": "DancerOfTheWeek",
+  "map": "BailandoParadisio",
+  "score": 13333,
+  "profileId": "d6345300-1a6f-4179-a524-d0265399cafe",
+  "gameVersion": "jd2021",
+  "rank": 1,
+  "name": "Happy",
+  "avatar": 11,
+  "country": 0,
+  "platformId": "f1439ec9-6ae3-4dfa-b9c7-241d21303d0c",
+  "alias": "1",
+  "aliasGender": -1,
+  "jdPoints": 2,
+  "portraitBorder": 12
+},{
+  "__class": "DancerOfTheWeek",
+  "map": "DontStartNow",
+  "score": 13333,
+  "profileId": "83350e85-fca6-4c3c-a2bd-a7041a950271",
+  "gameVersion": "jd2021",
+  "rank": 1,
+  "name": "Jazzy",
+  "avatar": 1,
+  "country": 0,
+  "platformId": "0fa150c8-13b2-40d8-bff9-9b9fc57ac6dd",
+  "alias": "2",
+  "aliasGender": -1,
+  "jdPoints": 31,
+  "portraitBorder": 0
+},{
+  "__class": "DancerOfTheWeek",
+  "map": "Juice",
+  "score": 13333,
+  "profileId": "041e08ca-b9b2-4cdd-b8c4-ef16d170a16b",
+  "gameVersion": "jd2021",
+  "rank": 1,
+  "name": "Sunny",
+  "avatar": 1,
+  "country": 13,
+  "platformId": "268aaa43-fea8-42c6-b2a7-79e7d2c6e387",
+  "alias": "3",
+  "aliasGender": -1,
+  "jdPoints": 0,
+  "portraitBorder": 13
+}
