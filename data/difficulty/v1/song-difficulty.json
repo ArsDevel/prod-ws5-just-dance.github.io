@@ -1,0 +1,15 @@
+"__Class": "songDifficulty" {
+{
+  "difficulty": 4,
+  "title": "EXTREME"
+},{
+  "difficulty": 3,
+  "title": "HARD"
+},{
+  "difficulty": 2,
+  "title": "MEDIUM"
+},{
+  "difficulty": 1,
+  "title": "EASY"
+}
+}
