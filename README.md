@@ -1,24 +1,48 @@
-file-download-utility
-Консольная утилита для скачивания файлов по HTTP протоколу. Входные параметры: n количество одновременно качающих потоков (1,2,3,4....) f путь к файлу со списком ссылок o имя папки, куда складывать скачанные файлы
+github-download
+===============
 
-Пример вызова: java -jar utility.jar 5 output_folder links.txt
+`github-download` downloads commit comments and select issues metadata, saving the raw JSON and writing summary `.csv` files.
 
-Формат файла со ссылками: <HTTP ссылка><пробел><имя файла, под которым его надо сохранить>
+Installing
+----------
 
-пример: http://example.com/archive.zip my_archive.zip http://example.com/image.jpg picture.jpg ......
+Download the `.jar` file [here](/target/github-download-1.0-SNAPSHOT-jar-with-dependencies.jar). It includes all dependencies. You must have the [Java Runtime Environment](http://java.com/en/download/manual.jsp) version 7 or above.
 
-В HTTP ссылке нет пробелов, нет encoded символов и прочей ерунды — это всегда обычные ссылки с английскими символами без специальных символов в именах файлов и прочее. Короче — ссылкам можно не делать decode. Ссылки без авторизации, не HTTPS/FTP — всегда только HTTP-протокол.
+Usage
+-----
 
-Ссылки могут повторяться в файле, но с разными именами для сохранения, например: http://example.com/archive.zip first_archive.zip http://example.com/archive.zip second_archive.zip
+`github-download` can be run from the command line. It has three required flags:
 
-Одинаковые ссылки — это нормальная ситуация, ее необходимо учитывать. То есть, нет смысла загружать одно и тоже дважды, особенно если речь идет о гигабайтах. Подразумевается, что один поток качает один файл, не надо качать один файл в несколько потоков. То есть если файлов 2, а потоков 3, то надо запустить два потока, каждый из которых будет загружать один файл.
+`-repo`. The full repository name, e.g., `PovertyAction/github-download`.
 
-Выходные данные: Все файлы загружаются в n потоков. В процессе работы утилита должна выводить статистику — время работы и количество скачанных байт виде:
+`-to`. The directory in which to save the metadata. It will be created if it does not exist already.
 
-Загружается файл
+`-token`. The name of a text file that contains solely a GitHub [OAuth token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/). GitHub will supply you a token, which is a single string. You must copy it to a text file, then specify the name of that file to `-token`.
 
-После завершения работы программа выводит:
+All together:
 
-Завершено: 100% Загружено: 17 файлов, 2.3 MB Время: 2 минуты 13 секунд Средняя скорость: 17.2 kB/s
+```
+java -jar github-download.jar -repo PovertyAction/github-download -token token.txt -to metadata
+```
 
-Утилита должна быть написана на Java (версия 7 или выше).
+If the name of the `.jar` file is not `github-download.jar`, use the actual filename in the command above, or rename the file as `github-download.jar`. If the file is not in the current working directory, you will have to specify its path.
+
+Next, specify the metadata to download:
+
+`-issues`. Download select issues metadata.
+
+`-cc`. Download commit comments, including in-line notes.
+
+To download all supported metadata:
+
+```
+java -jar github-download.jar -repo PovertyAction/github-download -token token.txt -to metadata -issues -cc
+```
+
+You may see the following warning message, which is safe to ignore:
+
+```
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+```
